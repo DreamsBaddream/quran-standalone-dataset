@@ -4,16 +4,11 @@ There are two ways to help improve this dataset:
 
 ---
 
-## Option A — Open a GitHub Issue (no coding required)
+## Option A — Vote on the review page (no account needed)
 
-Use the **[Challenge a Classification](../../issues/new?template=classification_challenge.yml)** issue template.
+Visit **[the review page](https://dreamsbaddream.github.io/quran-standalone-dataset)**, go through verses, and click **"🚩 This is wrong"** if you spot an error. A short form will open — no account required, just submit and you're done.
 
-Tell us:
-- Which verse (`2:255`, `12:4`, etc.)
-- Whether it should be `standalone=true` or `standalone=false`
-- Why the current classification is wrong
-
-A maintainer will review and apply the correction to `manual_overrides.json`.
+Votes are reviewed periodically and accepted corrections are applied to `manual_overrides.json`.
 
 ---
 
