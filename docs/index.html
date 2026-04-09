@@ -298,22 +298,15 @@ async function renderCard(verse) {
 }
 
 function openIssue(verse) {
-  const shouldBe = verse.standalone ? 'standalone=false (needs context)' : 'standalone=true (safe to post alone)';
-  const title = encodeURIComponent(`[CHALLENGE] ${verse.key} — should be ${shouldBe}`);
-  const body  = encodeURIComponent(
-`**Verse:** ${verse.key}
-**Should be:** ${shouldBe}
-**Current classification:** standalone=${verse.standalone}, confidence=${verse.confidence}
-**Current note:** ${verse.note || '(none)'}
-
-**Why is it wrong?**
-(please explain — include the verse text if helpful)
-
-**Quran.com link:** https://quran.com/${verse.key.replace(':','/')}
-`);
-  const url = `https://github.com/${REPO}/issues/new?title=${title}&body=${body}&labels=classification-challenge`;
+  const shouldBe = verse.standalone ? 'Needs Context' : 'Standalone';
+  const FORM_BASE    = 'https://docs.google.com/forms/d/e/1FAIpQLSeGE3iGIpN6SuNPtQYj_MRijTMruz-FKGUhGTrgzck7Y0t5_Q/viewform';
+  const FIELD_VERSE  = 'entry.807404005';
+  const FIELD_VOTE   = 'entry.513700738';
+  const FIELD_REASON = 'entry.962609489';
+  const url = `${FORM_BASE}?usp=pp_url&${FIELD_VERSE}=${encodeURIComponent(verse.key)}&${FIELD_VOTE}=${encodeURIComponent(shouldBe)}&${FIELD_REASON}=`;
   window.open(url, '_blank');
 }
+
 
 document.getElementById('btnCorrect').addEventListener('click', () => showNext());
 document.getElementById('btnIncorrect').addEventListener('click', () => { openIssue(current); showNext(); });
