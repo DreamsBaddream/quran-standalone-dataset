@@ -52,7 +52,7 @@ Accuracy estimate: ~88–92%. Not perfect — this is why community review exist
 
 Visit **[the review page](https://dreamsbaddream.github.io/quran-standalone-dataset)**, go through verses one by one, and click **"This is wrong — report it"** if you spot an error.
 
-You'll need a free [GitHub account](https://github.com/signup) to submit a report.
+No account needed — just visit the page and vote.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for more ways to help.
 
