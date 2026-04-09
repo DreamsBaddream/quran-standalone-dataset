@@ -1,0 +1,10 @@
+{
+  "name": "quran-standalone-ayah-dataset",
+  "version": "1.0.0",
+  "description": "Classifies all 6,236 Quran verses as standalone or context-dependent",
+  "type": "module",
+  "scripts": {
+    "generate": "node generate_dataset.js"
+  },
+  "license": "CC0-1.0"
+}

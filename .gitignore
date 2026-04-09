@@ -1,0 +1,4 @@
+node_modules/
+dataset/pending_corrections.json
+.env
+*.log

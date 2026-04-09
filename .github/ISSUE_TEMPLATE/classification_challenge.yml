@@ -1,0 +1,51 @@
+name: Challenge a Classification
+description: Report a verse that is incorrectly classified as standalone or dependent
+title: "[CHALLENGE] Surah X:Y — should be standalone/dependent"
+labels: ["classification-challenge"]
+
+body:
+  - type: input
+    id: verse_key
+    attributes:
+      label: Verse (e.g. 2:255)
+      placeholder: "2:255"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: should_be
+    attributes:
+      label: Should be classified as...
+      options:
+        - standalone=true (safe to post alone)
+        - standalone=false (needs surrounding context)
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: Current classification
+      description: Paste what the dataset currently says for this verse
+      placeholder: |
+        standalone: false
+        confidence: high
+        note: "Not ruku-first, narrative surah"
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: Why is it wrong?
+      description: Explain why the current classification is incorrect. Include the verse text if helpful.
+      placeholder: |
+        This verse is the opening of a well-known standalone concept (e.g. Ayatul Kursi).
+        Even though it is not the first verse of its ruku, it is universally understood as
+        self-contained and is commonly quoted alone.
+    validations:
+      required: true
+
+  - type: input
+    id: quran_link
+    attributes:
+      label: Quran.com link
+      placeholder: "https://quran.com/2/255"

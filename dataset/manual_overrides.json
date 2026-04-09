@@ -1,0 +1,98 @@
+[
+  {
+    "key": "2:255",
+    "standalone": true,
+    "confidence": "high",
+    "note": "Ayatul Kursi — universally known standalone verse; ruku boundary in API starts at 2:254 but 2:255 is self-contained"
+  },
+  {
+    "key": "2:256",
+    "standalone": true,
+    "confidence": "high",
+    "note": "La ikraha fid-din — no compulsion in religion; conceptually complete"
+  },
+  {
+    "key": "2:286",
+    "standalone": true,
+    "confidence": "high",
+    "note": "La yukallifullahu nafsan — Allah does not burden a soul; famous closing verse of Al-Baqarah"
+  },
+  {
+    "key": "3:18",
+    "standalone": true,
+    "confidence": "high",
+    "note": "Shahada verse — shahida Allahu annahu la ilaha illa hu; self-contained declaration"
+  },
+  {
+    "key": "3:26",
+    "standalone": true,
+    "confidence": "high",
+    "note": "Qul Allahumma Malik al-Mulk — famous dua verse; self-contained"
+  },
+  {
+    "key": "3:173",
+    "standalone": true,
+    "confidence": "high",
+    "note": "Hasbunallahu wa ni'mal wakeel — famous Tawakkul verse; self-contained"
+  },
+  {
+    "key": "3:185",
+    "standalone": true,
+    "confidence": "high",
+    "note": "Kullu nafsin dha'iqatul mawt — every soul shall taste death; self-contained"
+  },
+  {
+    "key": "4:36",
+    "standalone": true,
+    "confidence": "high",
+    "note": "Wa'budu Allaha — worship Allah and associate nothing with Him; self-contained command"
+  },
+  {
+    "key": "13:28",
+    "standalone": true,
+    "confidence": "high",
+    "note": "Ala bidhikrillahi tatmainnul qulub — in the remembrance of Allah do hearts find rest; self-contained"
+  },
+  {
+    "key": "17:23",
+    "standalone": true,
+    "confidence": "high",
+    "note": "Wa qada rabbuka — your Lord has decreed you worship none but Him; famous parenting/respect verse; self-contained"
+  },
+  {
+    "key": "49:13",
+    "standalone": true,
+    "confidence": "high",
+    "note": "Ya ayyuhan-nas — O mankind, We created you from male and female; famous equality verse; self-contained"
+  },
+  {
+    "key": "55:13",
+    "standalone": true,
+    "confidence": "high",
+    "note": "Fabi-ayyi ala'i rabbikuma tukadhdhibaan — repeated refrain of Ar-Rahman; self-contained"
+  },
+  {
+    "key": "57:3",
+    "standalone": true,
+    "confidence": "high",
+    "note": "Huwal awwalu wal akhiru — He is the First and the Last; self-contained"
+  },
+  {
+    "key": "65:3",
+    "standalone": true,
+    "confidence": "high",
+    "note": "Wa man yatawakkal alallahi — whoever relies on Allah, He is sufficient; famous Tawakkul verse; self-contained"
+  },
+  {
+    "key": "94:5",
+    "standalone": true,
+    "confidence": "high",
+    "note": "Fa'inna ma'al usri yusra — indeed with hardship comes ease; self-contained"
+  },
+  {
+    "key": "94:6",
+    "standalone": true,
+    "confidence": "high",
+    "note": "Inna ma'al usri yusra — indeed with hardship comes ease (repeated); self-contained"
+  }
+]
