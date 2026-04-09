@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quran Standalone Ayah — Community Review</title>
+<title>Quran Verse Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -15,223 +17,198 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 24px 16px;
   }
 
-  header {
-    text-align: center;
-    margin-bottom: 32px;
-    max-width: 600px;
+  .container {
+    width: 100%;
+    max-width: 560px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
 
-  header h1 { font-size: 1.4rem; font-weight: 600; margin-bottom: 8px; }
-  header p  { font-size: 0.9rem; color: #8b949e; line-height: 1.5; }
-
-  .progress {
-    font-size: 0.8rem;
+  .header {
+    text-align: center;
+  }
+  .header h1 {
+    font-size: 1rem;
+    font-weight: 500;
     color: #8b949e;
-    margin-bottom: 24px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
   }
 
   .card {
     background: #161b22;
     border: 1px solid #30363d;
-    border-radius: 12px;
-    padding: 28px;
-    width: 100%;
-    max-width: 600px;
-    margin-bottom: 20px;
-  }
-
-  .verse-ref {
-    font-size: 0.85rem;
-    color: #8b949e;
-    margin-bottom: 16px;
+    border-radius: 16px;
+    padding: 32px 28px;
+    min-height: 220px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: 20px;
   }
-
-  .badge {
-    font-size: 0.75rem;
-    padding: 2px 8px;
-    border-radius: 20px;
-    font-weight: 500;
-  }
-  .badge.standalone { background: #1a4731; color: #3fb950; }
-  .badge.dependent  { background: #3d1a1a; color: #f85149; }
 
   .arabic {
-    font-size: 1.8rem;
-    line-height: 2.2;
+    font-family: "Scheherazade New", serif;
+    font-size: 2rem;
+    line-height: 2.4;
     text-align: right;
     direction: rtl;
     color: #e6edf3;
-    margin-bottom: 20px;
-    font-family: "Scheherazade New", "Amiri", serif;
   }
 
   .translation {
     font-size: 0.95rem;
     line-height: 1.7;
     color: #c9d1d9;
-    margin-bottom: 8px;
   }
 
-  .algo-note {
-    font-size: 0.78rem;
-    color: #8b949e;
-    margin-top: 12px;
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding-top: 12px;
     border-top: 1px solid #21262d;
   }
 
-  .loading {
-    color: #8b949e;
-    font-size: 0.9rem;
-    min-height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .actions {
-    width: 100%;
-    max-width: 600px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 16px;
-  }
-
-  .btn {
-    padding: 14px;
-    border-radius: 8px;
-    border: none;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: opacity 0.15s;
-  }
-  .btn:hover { opacity: 0.85; }
-  .btn:disabled { opacity: 0.4; cursor: default; }
-
-  .btn-correct   { background: #238636; color: #fff; }
-  .btn-incorrect { background: #da3633; color: #fff; }
-
-  .btn-skip {
-    width: 100%;
-    max-width: 600px;
-    padding: 10px;
-    background: transparent;
-    border: 1px solid #30363d;
-    border-radius: 8px;
-    color: #8b949e;
+  .verse-ref {
     font-size: 0.85rem;
-    cursor: pointer;
-    margin-bottom: 32px;
-  }
-  .btn-skip:hover { border-color: #8b949e; color: #c9d1d9; }
-
-  .filter-bar {
-    width: 100%;
-    max-width: 600px;
-    display: flex;
-    gap: 8px;
-    margin-bottom: 24px;
-    flex-wrap: wrap;
-  }
-
-  .filter-bar select, .filter-bar input {
-    background: #161b22;
-    border: 1px solid #30363d;
-    border-radius: 6px;
-    color: #e6edf3;
-    padding: 8px 12px;
-    font-size: 0.85rem;
-    flex: 1;
-    min-width: 120px;
+    color: #8b949e;
   }
 
   .quran-link {
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     color: #58a6ff;
     text-decoration: none;
-    margin-top: 12px;
-    display: inline-block;
   }
   .quran-link:hover { text-decoration: underline; }
 
-  footer {
+  .loading-text {
     color: #8b949e;
-    font-size: 0.78rem;
+    font-size: 0.95rem;
     text-align: center;
-    margin-top: auto;
-    padding-top: 32px;
+    margin: auto;
   }
-  footer a { color: #58a6ff; text-decoration: none; }
+
+  .question {
+    text-align: center;
+    font-size: 1rem;
+    color: #8b949e;
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .btn {
+    padding: 16px 12px;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s, transform 0.1s;
+    line-height: 1.3;
+  }
+  .btn:hover  { opacity: 0.88; }
+  .btn:active { transform: scale(0.97); }
+  .btn:disabled { opacity: 0.35; cursor: default; }
+
+  .btn-yes {
+    background: #1f6feb;
+    color: #fff;
+  }
+  .btn-no {
+    background: #21262d;
+    color: #e6edf3;
+    border: 1px solid #30363d;
+  }
+
+  .btn-skip {
+    background: transparent;
+    border: none;
+    color: #8b949e;
+    font-size: 0.82rem;
+    cursor: pointer;
+    text-align: center;
+    padding: 4px;
+  }
+  .btn-skip:hover { color: #c9d1d9; }
+
+  .progress {
+    text-align: center;
+    font-size: 0.78rem;
+    color: #484f58;
+  }
+
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: #238636;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    transition: transform 0.3s ease;
+    pointer-events: none;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-  <h1>Quran Standalone Ayah — Community Review</h1>
-  <p>Help improve this dataset. Each verse is classified as <strong>standalone</strong> (safe to read alone) or <strong>context-dependent</strong> (needs surrounding verses). If you think a classification is wrong, report it.</p>
-</header>
+<div class="container">
+  <div class="header">
+    <h1>Quran Verse Review</h1>
+  </div>
 
-<div class="filter-bar">
-  <select id="filterMode">
-    <option value="all">All verses</option>
-    <option value="standalone">Standalone only</option>
-    <option value="dependent">Dependent only</option>
-    <option value="algorithmic" selected>Algorithmic (needs review)</option>
-  </select>
-  <input id="searchKey" type="text" placeholder="Jump to verse (e.g. 2:255)" />
+  <div class="card" id="card">
+    <div class="loading-text">Loading…</div>
+  </div>
+
+  <p class="question">Can this verse be understood on its own, without reading the verses around it?</p>
+
+  <div class="buttons">
+    <button class="btn btn-yes" id="btnYes" disabled>Yes, it stands alone</button>
+    <button class="btn btn-no"  id="btnNo"  disabled>No, needs context</button>
+  </div>
+
+  <button class="btn-skip" id="btnSkip" disabled>not sure — skip →</button>
+
+  <div class="progress" id="progress"></div>
 </div>
 
-<div class="progress" id="progress">Loading…</div>
-
-<div class="card" id="card">
-  <div class="loading">Loading dataset…</div>
-</div>
-
-<div class="actions">
-  <button class="btn btn-correct"   id="btnCorrect"   disabled>✅ Classification is correct</button>
-  <button class="btn btn-incorrect" id="btnIncorrect" disabled>🚩 This is wrong — report it</button>
-</div>
-<button class="btn-skip" id="btnSkip" disabled>Skip →</button>
-
-<footer>
-  <a href="https://github.com/DreamsBaddream/quran-standalone-dataset" target="_blank">GitHub</a> ·
-  Dataset is CC0 · Classifications are algorithmic + community-reviewed
-</footer>
+<div class="toast" id="toast">Thanks! Opening report form…</div>
 
 <script>
-const REPO = 'DreamsBaddream/quran-standalone-dataset';
+const REPO        = 'DreamsBaddream/quran-standalone-dataset';
 const DATASET_URL = 'https://raw.githubusercontent.com/' + REPO + '/main/dataset/standalone_ayahs.json';
-const QURAN_API = 'https://api.alquran.cloud/v1/ayah/';
+const QURAN_API   = 'https://api.alquran.cloud/v1/ayah/';
 
-let verses = [];
-let queue  = [];
+let verses  = [];
+let queue   = [];
+let idx     = 0;
 let current = null;
 
-async function loadDataset() {
+async function init() {
   const res  = await fetch(DATASET_URL);
   const data = await res.json();
   verses = data.verses;
-  applyFilter();
-}
 
-function applyFilter() {
-  const mode = document.getElementById('filterMode').value;
-  if (mode === 'standalone')  queue = verses.filter(v => v.standalone);
-  else if (mode === 'dependent') queue = verses.filter(v => !v.standalone);
-  else if (mode === 'algorithmic') queue = verses.filter(v => v.method !== 'manual');
-  else queue = [...verses];
+  // Show algorithmic entries first (most need review), then the rest
+  const algo   = verses.filter(v => v.method !== 'manual');
+  const manual = verses.filter(v => v.method === 'manual');
+  shuffle(algo);
+  shuffle(manual);
+  queue = [...algo, ...manual];
 
-  shuffle(queue);
   showNext();
 }
 
@@ -242,94 +219,91 @@ function shuffle(arr) {
   }
 }
 
-let queueIndex = 0;
+async function showNext() {
+  if (idx >= queue.length) idx = 0;
+  current = queue[idx++];
 
-function showNext() {
-  if (queueIndex >= queue.length) queueIndex = 0;
-  current = queue[queueIndex++];
-  if (!current) return;
-  renderCard(current);
-  updateProgress();
-}
+  setButtons(false);
+  document.getElementById('progress').textContent = `${idx} / ${queue.length} verses`;
 
-function updateProgress() {
-  document.getElementById('progress').textContent =
-    `Verse ${queueIndex} of ${queue.length} in current filter`;
-}
-
-async function renderCard(verse) {
   const card = document.getElementById('card');
-  const badgeClass = verse.standalone ? 'standalone' : 'dependent';
-  const badgeText  = verse.standalone ? 'Standalone' : 'Context-dependent';
-
   card.innerHTML = `
-    <div class="verse-ref">
-      <strong>${verse.key}</strong>
-      <span class="badge ${badgeClass}">${badgeText}</span>
+    <div class="arabic loading-text">Loading…</div>
+    <div class="translation"></div>
+    <div class="meta">
+      <span class="verse-ref">${current.key}</span>
+      <a class="quran-link" href="https://quran.com/${current.key.replace(':','/')}" target="_blank">read in context ↗</a>
     </div>
-    <div class="arabic loading">Loading Arabic…</div>
-    <div class="translation loading">Loading translation…</div>
-    <div class="algo-note">Algorithm note: ${verse.note || '(none)'} · confidence: ${verse.confidence}</div>
-    <a class="quran-link" href="https://quran.com/${verse.key.replace(':','/')}" target="_blank">
-      Read on Quran.com ↗
-    </a>
   `;
 
-  document.getElementById('btnCorrect').disabled   = false;
-  document.getElementById('btnIncorrect').disabled = false;
-  document.getElementById('btnSkip').disabled      = false;
-
-  // Fetch verse text
   try {
-    const res  = await fetch(QURAN_API + verse.key + '/editions/quran-uthmani,en.sahih');
+    const res  = await fetch(QURAN_API + current.key + '/editions/quran-uthmani,en.sahih');
     const data = await res.json();
     if (data.code === 200) {
-      const arabic = data.data[0]?.text || '';
-      const trans  = data.data[1]?.text || '';
-      card.querySelector('.arabic').textContent      = arabic;
-      card.querySelector('.translation').textContent = trans;
-      card.querySelector('.arabic').classList.remove('loading');
-      card.querySelector('.translation').classList.remove('loading');
+      card.querySelector('.arabic').textContent      = data.data[0]?.text || '';
+      card.querySelector('.translation').textContent = data.data[1]?.text || '';
     }
   } catch {
-    card.querySelector('.arabic').textContent      = '(Could not load Arabic text)';
-    card.querySelector('.translation').textContent = '(Could not load translation)';
+    card.querySelector('.arabic').textContent      = '(Could not load)';
+    card.querySelector('.translation').textContent = '';
   }
+
+  setButtons(true);
 }
 
-function openIssue(verse) {
-  const shouldBe = verse.standalone ? 'standalone=false (needs context)' : 'standalone=true (safe to post alone)';
-  const title = encodeURIComponent(`[CHALLENGE] ${verse.key} — should be ${shouldBe}`);
-  const body  = encodeURIComponent(
-`**Verse:** ${verse.key}
+function setButtons(enabled) {
+  document.getElementById('btnYes').disabled  = !enabled;
+  document.getElementById('btnNo').disabled   = !enabled;
+  document.getElementById('btnSkip').disabled = !enabled;
+}
+
+function openIssue() {
+  const userSays  = document.getElementById('btnYes').dataset.lastClick === 'yes' ? true : false;
+  const shouldBe  = userSays ? 'standalone=true (stands alone)' : 'standalone=false (needs context)';
+  const title     = encodeURIComponent(`[CHALLENGE] ${current.key} — should be ${shouldBe}`);
+  const body      = encodeURIComponent(
+`**Verse:** ${current.key}
 **Should be:** ${shouldBe}
-**Current classification:** standalone=${verse.standalone}, confidence=${verse.confidence}
-**Current note:** ${verse.note || '(none)'}
+**Quran.com:** https://quran.com/${current.key.replace(':','/')}
 
 **Why is it wrong?**
-(please explain — include the verse text if helpful)
-
-**Quran.com link:** https://quran.com/${verse.key.replace(':','/')}
+(explain here)
 `);
-  const url = `https://github.com/${REPO}/issues/new?title=${title}&body=${body}&labels=classification-challenge`;
-  window.open(url, '_blank');
+  window.open(`https://github.com/${REPO}/issues/new?title=${title}&body=${body}&labels=classification-challenge`, '_blank');
 }
 
-document.getElementById('btnCorrect').addEventListener('click', () => showNext());
-document.getElementById('btnIncorrect').addEventListener('click', () => { openIssue(current); showNext(); });
-document.getElementById('btnSkip').addEventListener('click', () => showNext());
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
 
-document.getElementById('filterMode').addEventListener('change', () => { queueIndex = 0; applyFilter(); });
-
-document.getElementById('searchKey').addEventListener('keydown', e => {
-  if (e.key !== 'Enter') return;
-  const key = e.target.value.trim();
-  const found = verses.find(v => v.key === key);
-  if (found) { current = found; renderCard(found); }
-  else alert(`Verse ${key} not found. Format: surah:ayah e.g. 2:255`);
+document.getElementById('btnYes').addEventListener('click', () => {
+  // User says standalone=true
+  if (current.standalone === false) {
+    // Disagrees — open issue
+    document.getElementById('btnYes').dataset.lastClick = 'yes';
+    showToast('Thanks! Opening report form…');
+    setTimeout(openIssue, 600);
+  }
+  showNext();
 });
 
-loadDataset();
+document.getElementById('btnNo').addEventListener('click', () => {
+  // User says standalone=false
+  if (current.standalone === true) {
+    // Disagrees — open issue
+    document.getElementById('btnYes').dataset.lastClick = 'no';
+    showToast('Thanks! Opening report form…');
+    setTimeout(openIssue, 600);
+  }
+  showNext();
+});
+
+document.getElementById('btnSkip').addEventListener('click', showNext);
+
+init();
 </script>
 </body>
 </html>
